@@ -1,5 +1,5 @@
-const Re = "recorderhero", ze = "recorder", Ce = "Recorder Hero", Ne = "recorderhero.crescendu.com", Oe = "https://github.com/dflorey/recorderhero-app.git";
-const Pe = {
+const Re = "recorderhero", Ce = "recorder", ze = "Recorder Hero", Ne = "recorderhero.crescendu.com", Oe = "https://github.com/dflorey/recorderhero-app.git";
+const Le = {
   paths: [
     "M43,17H57V68L62,83H38L43,68Z",
     "M46.5,28.5H53.5"
@@ -21,18 +21,18 @@ const Pe = {
       0.4
     ]
   ]
-}, Le = {
+}, Pe = {
   id: Re,
-  instrument: ze,
-  name: Ce,
+  instrument: Ce,
+  name: ze,
   domain: Ne,
   siteRepo: Oe,
   cacheVersion: 1,
-  mark: Pe
-}, K = (e) => `https://${e}.crescendu.com/`, Mt = {
+  mark: Le
+}, U = (e) => `https://${e}.crescendu.com/`, Mt = {
   violin: {
     id: "violin",
-    app: { id: "violinhero", name: "Violin Hero", url: K("violinhero") },
+    app: { id: "violinhero", name: "Violin Hero", url: U("violinhero") },
     name: { en: "violin", de: "Geige" },
     label: { en: "Violin", de: "Geige" },
     strings: [
@@ -56,7 +56,7 @@ const Pe = {
   },
   viola: {
     id: "viola",
-    app: { id: "violahero", name: "Viola Hero", url: K("violahero") },
+    app: { id: "violahero", name: "Viola Hero", url: U("violahero") },
     name: { en: "viola", de: "Bratsche" },
     label: { en: "Viola", de: "Bratsche" },
     strings: [
@@ -80,7 +80,7 @@ const Pe = {
   },
   cello: {
     id: "cello",
-    app: { id: "cellohero", name: "Cello Hero", url: K("cellohero") },
+    app: { id: "cellohero", name: "Cello Hero", url: U("cellohero") },
     name: { en: "cello", de: "Cello" },
     label: { en: "Cello", de: "Cello" },
     strings: [
@@ -103,7 +103,7 @@ const Pe = {
   },
   recorder: {
     id: "recorder",
-    app: { id: "recorderhero", name: "Recorder Hero", url: K("recorderhero") },
+    app: { id: "recorderhero", name: "Recorder Hero", url: U("recorderhero") },
     name: { en: "recorder", de: "Blockflöte" },
     label: { en: "Recorder", de: "Blockflöte" },
     // A recorder isn't tuned note by note
@@ -124,7 +124,7 @@ const Pe = {
   },
   voice: {
     id: "voice",
-    app: { id: "voicehero", name: "Voice Hero", url: K("voicehero") },
+    app: { id: "voicehero", name: "Voice Hero", url: U("voicehero") },
     name: { en: "voice", de: "Stimme" },
     label: { en: "Voice", de: "Gesang" },
     strings: [],
@@ -140,10 +140,30 @@ const Pe = {
     marks: { fingers: [], bows: !1, harmonics: !1 },
     bowed: !1,
     vibrato: !0
+  },
+  choir: {
+    id: "choir",
+    app: { id: "choirhero", name: "Choir Hero", url: U("choirhero") },
+    name: { en: "voice", de: "Stimme" },
+    // Its chip beside the others (the marketplace, the hall of fame, profiles): the choir
+    label: { en: "Choir", de: "Chor" },
+    strings: [],
+    tuneOrder: [],
+    open: [],
+    // A choral score's voices, bass to soprano: the part sung is the one chosen (choir-voices.ts)
+    range: [36, 84],
+    hz: [60, 1200],
+    programs: [53, 54, 55],
+    partName: /voice|vocal|voc\b|gesang|stimme|sing|sopran|alt|tenor|bass|canto|cantus|chant|choir|chor|chorus/i,
+    clef: { sign: "G", line: 2 },
+    middleLine: 71,
+    marks: { fingers: [], bows: !1, harmonics: !1 },
+    bowed: !1,
+    vibrato: !0
   }
 };
-let De = Mt[Le.instrument] ?? Mt.violin;
-function zt() {
+let De = Mt[Pe.instrument] ?? Mt.violin;
+function Ct() {
   return De;
 }
 Object.values(Mt).map((e) => e.app.id);
@@ -152,7 +172,7 @@ Object.values(Mt).map((e) => e.app.id);
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const rt = globalThis, St = rt.ShadowRoot && (rt.ShadyCSS === void 0 || rt.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, Et = Symbol(), Ct = /* @__PURE__ */ new WeakMap();
+const rt = globalThis, St = rt.ShadowRoot && (rt.ShadyCSS === void 0 || rt.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, Et = Symbol(), zt = /* @__PURE__ */ new WeakMap();
 let ae = class {
   constructor(t, i, s) {
     if (this._$cssResult$ = !0, s !== Et)
@@ -164,7 +184,7 @@ let ae = class {
     const i = this.t;
     if (St && t === void 0) {
       const s = i !== void 0 && i.length === 1;
-      s && (t = Ct.get(i)), t === void 0 && ((this.o = t = new CSSStyleSheet()).replaceSync(this.cssText), s && Ct.set(i, t));
+      s && (t = zt.get(i)), t === void 0 && ((this.o = t = new CSSStyleSheet()).replaceSync(this.cssText), s && zt.set(i, t));
     }
     return t;
   }
@@ -200,7 +220,7 @@ const Ie = (e) => new ae(typeof e == "string" ? e : e + "", void 0, Et), He = (e
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Fe, defineProperty: Ue, getOwnPropertyDescriptor: Be, getOwnPropertyNames: Ge, getOwnPropertySymbols: je, getPrototypeOf: Ke } = Object, L = globalThis, Ot = L.trustedTypes, qe = Ot ? Ot.emptyScript : "", pt = L.reactiveElementPolyfillSupport, Y = (e, t) => e, ot = { toAttribute(e, t) {
+const { is: Fe, defineProperty: Ue, getOwnPropertyDescriptor: Be, getOwnPropertyNames: Ge, getOwnPropertySymbols: je, getPrototypeOf: Ke } = Object, P = globalThis, Ot = P.trustedTypes, qe = Ot ? Ot.emptyScript : "", pt = P.reactiveElementPolyfillSupport, Y = (e, t) => e, ot = { toAttribute(e, t) {
   switch (t) {
     case Boolean:
       e = e ? qe : null;
@@ -228,16 +248,16 @@ const { is: Fe, defineProperty: Ue, getOwnPropertyDescriptor: Be, getOwnProperty
       }
   }
   return i;
-} }, kt = (e, t) => !Fe(e, t), Pt = { attribute: !0, type: String, converter: ot, reflect: !1, useDefault: !1, hasChanged: kt };
-Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), L.litPropertyMetadata ?? (L.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
-let U = class extends HTMLElement {
+} }, kt = (e, t) => !Fe(e, t), Lt = { attribute: !0, type: String, converter: ot, reflect: !1, useDefault: !1, hasChanged: kt };
+Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), P.litPropertyMetadata ?? (P.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
+let B = class extends HTMLElement {
   static addInitializer(t) {
     this._$Ei(), (this.l ?? (this.l = [])).push(t);
   }
   static get observedAttributes() {
     return this.finalize(), this._$Eh && [...this._$Eh.keys()];
   }
-  static createProperty(t, i = Pt) {
+  static createProperty(t, i = Lt) {
     if (i.state && (i.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(t) && ((i = Object.create(i)).wrapped = !0), this.elementProperties.set(t, i), !i.noAccessor) {
       const s = Symbol(), n = this.getPropertyDescriptor(t, s, i);
       n !== void 0 && Ue(this.prototype, t, n);
@@ -255,7 +275,7 @@ let U = class extends HTMLElement {
     }, configurable: !0, enumerable: !0 };
   }
   static getPropertyOptions(t) {
-    return this.elementProperties.get(t) ?? Pt;
+    return this.elementProperties.get(t) ?? Lt;
   }
   static _$Ei() {
     if (this.hasOwnProperty(Y("elementProperties")))
@@ -445,15 +465,15 @@ let U = class extends HTMLElement {
   firstUpdated(t) {
   }
 };
-U.elementStyles = [], U.shadowRootOptions = { mode: "open" }, U[Y("elementProperties")] = /* @__PURE__ */ new Map(), U[Y("finalized")] = /* @__PURE__ */ new Map(), pt == null || pt({ ReactiveElement: U }), (L.reactiveElementVersions ?? (L.reactiveElementVersions = [])).push("2.1.2");
+B.elementStyles = [], B.shadowRootOptions = { mode: "open" }, B[Y("elementProperties")] = /* @__PURE__ */ new Map(), B[Y("finalized")] = /* @__PURE__ */ new Map(), pt == null || pt({ ReactiveElement: B }), (P.reactiveElementVersions ?? (P.reactiveElementVersions = [])).push("2.1.2");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Z = globalThis, Lt = (e) => e, at = Z.trustedTypes, Dt = at ? at.createPolicy("lit-html", { createHTML: (e) => e }) : void 0, le = "$lit$", P = `lit$${Math.random().toFixed(9).slice(2)}$`, he = "?" + P, We = `<${he}>`, V = document, X = () => V.createComment(""), Q = (e) => e === null || typeof e != "object" && typeof e != "function", Tt = Array.isArray, Ye = (e) => Tt(e) || typeof (e == null ? void 0 : e[Symbol.iterator]) == "function", ut = `[ 	
+const Z = globalThis, Pt = (e) => e, at = Z.trustedTypes, Dt = at ? at.createPolicy("lit-html", { createHTML: (e) => e }) : void 0, le = "$lit$", L = `lit$${Math.random().toFixed(9).slice(2)}$`, he = "?" + L, We = `<${he}>`, V = document, X = () => V.createComment(""), Q = (e) => e === null || typeof e != "object" && typeof e != "function", Tt = Array.isArray, Ye = (e) => Tt(e) || typeof (e == null ? void 0 : e[Symbol.iterator]) == "function", ut = `[ 	
 \f\r]`, q = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, It = /-->/g, Ht = />/g, D = RegExp(`>|${ut}(?:([^\\s"'>=/]+)(${ut}*=${ut}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), Vt = /'/g, Ft = /"/g, ce = /^(?:script|style|textarea|title)$/i, de = (e) => (t, ...i) => ({ _$litType$: e, strings: t, values: i }), _ = de(1), z = de(2), B = Symbol.for("lit-noChange"), w = Symbol.for("lit-nothing"), Ut = /* @__PURE__ */ new WeakMap(), I = V.createTreeWalker(V, 129);
+\f\r"'\`<>=]|("|')|))|$)`, "g"), Vt = /'/g, Ft = /"/g, ce = /^(?:script|style|textarea|title)$/i, de = (e) => (t, ...i) => ({ _$litType$: e, strings: t, values: i }), _ = de(1), C = de(2), G = Symbol.for("lit-noChange"), w = Symbol.for("lit-nothing"), Ut = /* @__PURE__ */ new WeakMap(), I = V.createTreeWalker(V, 129);
 function pe(e, t) {
   if (!Tt(e) || !e.hasOwnProperty("raw"))
     throw Error("invalid template strings array");
@@ -468,7 +488,7 @@ const Ze = (e, t) => {
     for (; f < l.length && (o.lastIndex = f, d = o.exec(l), d !== null); )
       f = o.lastIndex, o === q ? d[1] === "!--" ? o = It : d[1] !== void 0 ? o = Ht : d[2] !== void 0 ? (ce.test(d[2]) && (n = RegExp("</" + d[2], "g")), o = D) : d[3] !== void 0 && (o = D) : o === D ? d[0] === ">" ? (o = n ?? q, c = -1) : d[1] === void 0 ? c = -2 : (c = o.lastIndex - d[2].length, h = d[1], o = d[3] === void 0 ? D : d[3] === '"' ? Ft : Vt) : o === Ft || o === Vt ? o = D : o === It || o === Ht ? o = q : (o = D, n = void 0);
     const u = o === D && e[a + 1].startsWith("/>") ? " " : "";
-    r += o === q ? l + We : c >= 0 ? (s.push(h), l.slice(0, c) + le + l.slice(c) + P + u) : l + P + (c === -2 ? a : u);
+    r += o === q ? l + We : c >= 0 ? (s.push(h), l.slice(0, c) + le + l.slice(c) + L + u) : l + L + (c === -2 ? a : u);
   }
   return [pe(e, r + (e[i] || "<?>") + (t === 2 ? "</svg>" : t === 3 ? "</math>" : "")), s];
 };
@@ -487,12 +507,12 @@ class tt {
         if (n.hasAttributes())
           for (const c of n.getAttributeNames())
             if (c.endsWith(le)) {
-              const f = d[o++], u = n.getAttribute(c).split(P), p = /([.?@])?(.*)/.exec(f);
+              const f = d[o++], u = n.getAttribute(c).split(L), p = /([.?@])?(.*)/.exec(f);
               l.push({ type: 1, index: r, name: p[2], strings: u, ctor: p[1] === "." ? Xe : p[1] === "?" ? Qe : p[1] === "@" ? ti : ct }), n.removeAttribute(c);
             } else
-              c.startsWith(P) && (l.push({ type: 6, index: r }), n.removeAttribute(c));
+              c.startsWith(L) && (l.push({ type: 6, index: r }), n.removeAttribute(c));
         if (ce.test(n.tagName)) {
-          const c = n.textContent.split(P), f = c.length - 1;
+          const c = n.textContent.split(L), f = c.length - 1;
           if (f > 0) {
             n.textContent = at ? at.emptyScript : "";
             for (let u = 0; u < f; u++)
@@ -505,8 +525,8 @@ class tt {
           l.push({ type: 2, index: r });
         else {
           let c = -1;
-          for (; (c = n.data.indexOf(P, c + 1)) !== -1; )
-            l.push({ type: 7, index: r }), c += P.length - 1;
+          for (; (c = n.data.indexOf(L, c + 1)) !== -1; )
+            l.push({ type: 7, index: r }), c += L.length - 1;
         }
       r++;
     }
@@ -516,13 +536,13 @@ class tt {
     return s.innerHTML = t, s;
   }
 }
-function G(e, t, i = e, s) {
+function j(e, t, i = e, s) {
   var o, a;
-  if (t === B)
+  if (t === G)
     return t;
   let n = s !== void 0 ? (o = i._$Co) == null ? void 0 : o[s] : i._$Cl;
   const r = Q(t) ? void 0 : t._$litDirective$;
-  return (n == null ? void 0 : n.constructor) !== r && ((a = n == null ? void 0 : n._$AO) == null || a.call(n, !1), r === void 0 ? n = void 0 : (n = new r(e), n._$AT(e, i, s)), s !== void 0 ? (i._$Co ?? (i._$Co = []))[s] = n : i._$Cl = n), n !== void 0 && (t = G(e, n._$AS(e, t.values), n, s)), t;
+  return (n == null ? void 0 : n.constructor) !== r && ((a = n == null ? void 0 : n._$AO) == null || a.call(n, !1), r === void 0 ? n = void 0 : (n = new r(e), n._$AT(e, i, s)), s !== void 0 ? (i._$Co ?? (i._$Co = []))[s] = n : i._$Cl = n), n !== void 0 && (t = j(e, n._$AS(e, t.values), n, s)), t;
 }
 class Je {
   constructor(t, i) {
@@ -573,7 +593,7 @@ class et {
     return this._$AB;
   }
   _$AI(t, i = this) {
-    t = G(this, t, i), Q(t) ? t === w || t == null || t === "" ? (this._$AH !== w && this._$AR(), this._$AH = w) : t !== this._$AH && t !== B && this._(t) : t._$litType$ !== void 0 ? this.$(t) : t.nodeType !== void 0 ? this.T(t) : Ye(t) ? this.k(t) : this._(t);
+    t = j(this, t, i), Q(t) ? t === w || t == null || t === "" ? (this._$AH !== w && this._$AR(), this._$AH = w) : t !== this._$AH && t !== G && this._(t) : t._$litType$ !== void 0 ? this.$(t) : t.nodeType !== void 0 ? this.T(t) : Ye(t) ? this.k(t) : this._(t);
   }
   O(t) {
     return this._$AA.parentNode.insertBefore(t, this._$AB);
@@ -609,8 +629,8 @@ class et {
   _$AR(t = this._$AA.nextSibling, i) {
     var s;
     for ((s = this._$AP) == null ? void 0 : s.call(this, !1, !0, i); t !== this._$AB; ) {
-      const n = Lt(t).nextSibling;
-      Lt(t).remove(), t = n;
+      const n = Pt(t).nextSibling;
+      Pt(t).remove(), t = n;
     }
   }
   setConnected(t) {
@@ -632,12 +652,12 @@ class ct {
     const r = this.strings;
     let o = !1;
     if (r === void 0)
-      t = G(this, t, i, 0), o = !Q(t) || t !== this._$AH && t !== B, o && (this._$AH = t);
+      t = j(this, t, i, 0), o = !Q(t) || t !== this._$AH && t !== G, o && (this._$AH = t);
     else {
       const a = t;
       let l, h;
       for (t = r[0], l = 0; l < r.length - 1; l++)
-        h = G(this, a[s + l], i, l), h === B && (h = this._$AH[l]), o || (o = !Q(h) || h !== this._$AH[l]), h === w ? t = w : t !== w && (t += (h ?? "") + r[l + 1]), this._$AH[l] = h;
+        h = j(this, a[s + l], i, l), h === G && (h = this._$AH[l]), o || (o = !Q(h) || h !== this._$AH[l]), h === w ? t = w : t !== w && (t += (h ?? "") + r[l + 1]), this._$AH[l] = h;
     }
     o && !n && this.j(t);
   }
@@ -666,7 +686,7 @@ class ti extends ct {
     super(t, i, s, n, r), this.type = 5;
   }
   _$AI(t, i = this) {
-    if ((t = G(this, t, i, 0) ?? w) === B)
+    if ((t = j(this, t, i, 0) ?? w) === G)
       return;
     const s = this._$AH, n = t === w && s !== w || t.capture !== s.capture || t.once !== s.once || t.passive !== s.passive, r = t !== w && (s === w || n);
     n && this.element.removeEventListener(this.name, this, s), r && this.element.addEventListener(this.name, this, t), this._$AH = t;
@@ -684,7 +704,7 @@ class ei {
     return this._$AM._$AU;
   }
   _$AI(t) {
-    G(this, t);
+    j(this, t);
   }
 }
 const mt = Z.litHtmlPolyfillSupport;
@@ -704,7 +724,7 @@ const ii = (e, t, i) => {
  * SPDX-License-Identifier: BSD-3-Clause
  */
 const H = globalThis;
-class J extends U {
+class J extends B {
   constructor() {
     super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
   }
@@ -726,7 +746,7 @@ class J extends U {
     super.disconnectedCallback(), (t = this._$Do) == null || t.setConnected(!1);
   }
   render() {
-    return B;
+    return G;
   }
 }
 var oe;
@@ -930,7 +950,7 @@ function jt(e, t, i) {
   return o > 0 ? t + Math.max(-0.5, Math.min(0.5, (s - r) / (2 * o))) : t;
 }
 const be = 20, bi = 1.2, N = -80, yi = 0.1, Kt = 0.5, $i = 10, xi = 0.05, wi = 0.25, _i = 0.01, Mi = -3, Ai = 40, Si = 1e-4, At = 3.2, qt = [0.012, 0.019], vt = 0.08, Ei = 28, ki = 0.8, Ti = 0.12, Ri = 80, Wt = 0.7;
-class zi {
+class Ci {
   constructor(t, i) {
     this.audio = t, this.microphone = i, this.disposed = !1, this.gainDbValue = 0, this.minHzValue = 60, this.maxHzValue = 3e3, this.level = N, this.buffer = new Float32Array(0), this.tailTimer = 0, this.lastTime = -1, this.lastPitch = { hz: 0, time: -1 / 0 }, this.playStarted = 0, this.recordings = /* @__PURE__ */ new Map(), this.exampleEnded = -1 / 0, this.volumeValue = 1, this.reverbAmount = 0;
   }
@@ -1094,7 +1114,7 @@ class zi {
     if (!this.reverbSend) {
       this.reverbSend = t.createBiquadFilter(), this.reverbSend.type = "highpass", this.reverbSend.frequency.value = Ri;
       const i = t.createConvolver();
-      i.buffer = Ci(t), this.wet = t.createGain(), this.wet.gain.value = this.reverbAmount * Wt, this.reverbSend.connect(i).connect(this.wet).connect(this.out);
+      i.buffer = zi(t), this.wet = t.createGain(), this.wet.gain.value = this.reverbAmount * Wt, this.reverbSend.connect(i).connect(this.wet).connect(this.out);
     }
     return this.reverbSend;
   }
@@ -1168,7 +1188,7 @@ class zi {
 function ye(e, t) {
   return Math.min(32768, Math.max(1024, 2 ** Math.ceil(Math.log2(2.2 * e / t))));
 }
-function Ci(e) {
+function zi(e) {
   const t = e.sampleRate, i = Math.round((At + Math.max(...qt)) * t), s = e.createBuffer(2, i, t);
   for (let n = 0; n < 2; n++) {
     const r = s.getChannelData(n), o = Math.round(qt[n] * t);
@@ -1190,7 +1210,7 @@ function Ci(e) {
   }
   return s;
 }
-const Yt = 0.01, Ni = 3, Oi = 0.015, Pi = 1, Li = 0.5, Zt = [-1, 4, 10, 4, -1].map((e) => e / 16), Jt = 60;
+const Yt = 0.01, Ni = 3, Oi = 0.015, Li = 1, Pi = 0.5, Zt = [-1, 4, 10, 4, -1].map((e) => e / 16), Jt = 60;
 async function $e(e, t, i, s, n) {
   const r = e.points.filter((c) => c.midi !== null).map((c) => c.midi);
   if (!r.length)
@@ -1201,7 +1221,7 @@ async function $e(e, t, i, s, n) {
   const h = [];
   let d = null;
   for (let c = 0; c * Yt <= a; c++) {
-    const f = c * Yt, u = l(f), m = Ii(t, u, s, d ?? o, d === null ? 1.5 : Pi);
+    const f = c * Yt, u = l(f), m = Ii(t, u, s, d ?? o, d === null ? 1.5 : Li);
     d = m;
     const v = s / (m ?? o);
     h.push({ t: f, midi: m ? 69 + 12 * Math.log2(m / n) : null, db: Hi(t, u, v, s) }), c % Jt === Jt - 1 && await new Promise((g) => setTimeout(g));
@@ -1234,7 +1254,7 @@ function Ii(e, t, i, s, n) {
     const $ = d(y);
     u.set(y, $), $ > f && ([c, f] = [y, $]);
   }
-  if (f < Li || c === o || c === a)
+  if (f < Pi || c === o || c === a)
     return null;
   const [p, m, v] = [u.get(c - 1), f, u.get(c + 1)], g = p - 2 * m + v, b = g ? c + (p - v) / (2 * g) : c;
   return i / b;
@@ -1601,7 +1621,7 @@ const gs = 180, fs = 3e3, vs = 350, ee = 0.1, bs = 0.5, ys = 6, $s = 2, $t = [25
   { id: "oistrakh", name: "David Oistrakh", file: "ostrakh.wav" },
   { id: "hirschhorn", name: "Philippe Hirschhorn", file: "horschhorn.wav" },
   { id: "vengerov", name: "Maxim Vengerov", file: "vengerov.wav" }
-], Ms = z`<rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6" />`, As = z`<path class="fill" d="M8 5.5v13l10.5-6.5z" />`, Ss = z`<rect class="fill" x="7" y="7" width="10" height="10" rx="1.5" />`, Es = z`<path d="M6 6l12 12M18 6L6 18" />`, ks = z`<path d="M3 12c1.8-6 4.2-6 6 0s4.2 6 6 0 4.2-6 6 0" />`;
+], Ms = C`<rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6" />`, As = C`<path class="fill" d="M8 5.5v13l10.5-6.5z" />`, Ss = C`<rect class="fill" x="7" y="7" width="10" height="10" rx="1.5" />`, Es = C`<path d="M6 6l12 12M18 6L6 18" />`, ks = C`<path d="M3 12c1.8-6 4.2-6 6 0s4.2 6 6 0 4.2-6 6 0" />`;
 let S = class extends J {
   constructor() {
     super(...arguments), this.texts = yt("en"), this.running = !1, this.micFailed = !1, this.kept = [], this.gainDb = 0, this.reverb = 0.3, this.styleId = "romantic", this.size = { width: 0, height: 0 }, this.recorder = new we(), this.reference = 440, this.replaying = !1, this.playLead = 0, this.deafUntil = 0, this.masterTakes = /* @__PURE__ */ new Map(), this.sizeObserver = new ResizeObserver(([e]) => {
@@ -1640,7 +1660,7 @@ let S = class extends J {
   connectHost() {
     const e = this.host;
     this.texts = yt(e.language), this.stopLanguage = e.onLanguage((s) => this.texts = yt(s)), this.reference = e.referenceHz || 440, Bt.includes(e.vibratoStyle) && (this.styleId = e.vibratoStyle), this.loadSettings();
-    const t = new zi(e.context, () => e.microphone()), i = this.reference / 440;
+    const t = new Ci(e.context, () => e.microphone()), i = this.reference / 440;
     t.setRange(gs * i, fs * i), t.gainDb = this.gainDb, t.reverb = this.reverb, t.onLevel = (s) => this.showLevel(s), t.onExampleEnd = () => {
       this.playing = void 0, this.playhead = void 0, this.deafUntil = t.now + bs + t.outputLatency + t.reverbTail;
     }, t.onFrame = (s) => {
@@ -1763,7 +1783,7 @@ let S = class extends J {
         <header class="head">
           <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true">${ks}</svg></span>
           <span class="titles">
-            <h1 aria-label=${`${zt().app.name} ${e.name}`}>${zt().app.name} <span class="tool-place">${e.name}</span></h1>
+            <h1 aria-label=${`${Ct().app.name} ${e.name}`}>${Ct().app.name} <span class="tool-place">${e.name}</span></h1>
             <span class="lead">${e.lead}</span>
           </span>
           <button class="round close" title=${e.close} aria-label=${e.close} @click=${() => this.host.close()}>
@@ -1822,36 +1842,36 @@ let S = class extends J {
         <strong>${this.failed ? e.loadFailed : this.running ? e.ready : e.off}</strong>
         <span>${this.failed ? "" : this.running ? e.readyLead : e.offLead}</span>
       </div>`;
-    const { points: r } = s, o = r[r.length - 1].t, a = s.live ? Math.max($s, Math.ceil(o + 0.25)) : Math.max(o, 0.5), l = 44, h = 14, d = 26, c = 10, f = 22, u = Math.max(40, (i - c - f - d) * 0.64), p = c + u + d, m = Math.max(24, i - f - p), v = (x) => l + x / a * (t - l - h), g = n.cents.filter((x) => x !== null).map(Math.abs).sort((x, C) => x - C), b = Math.max(g[Math.floor(g.length * 0.95)] ?? 0, Math.abs(n.mean) + (n.width ?? 0) / 2), y = $t.find((x) => x >= b * 1.1) ?? $t[$t.length - 1], $ = (x) => c + (y - Math.max(-y, Math.min(y, x))) / (2 * y) * u, A = !s.live && s.optimized, M = r.map((x) => x.t), k = Rs(M, n.cents), R = [];
+    const { points: r } = s, o = r[r.length - 1].t, a = s.live ? Math.max($s, Math.ceil(o + 0.25)) : Math.max(o, 0.5), l = 44, h = 14, d = 26, c = 10, f = 22, u = Math.max(40, (i - c - f - d) * 0.64), p = c + u + d, m = Math.max(24, i - f - p), v = (x) => l + x / a * (t - l - h), g = n.cents.filter((x) => x !== null).map(Math.abs).sort((x, z) => x - z), b = Math.max(g[Math.floor(g.length * 0.95)] ?? 0, Math.abs(n.mean) + (n.width ?? 0) / 2), y = $t.find((x) => x >= b * 1.1) ?? $t[$t.length - 1], $ = (x) => c + (y - Math.max(-y, Math.min(y, x))) / (2 * y) * u, A = !s.live && s.optimized, M = r.map((x) => x.t), k = Rs(M, n.cents), R = [];
     let O = [];
-    k.forEach((x, C) => {
-      x === null ? (O.length > 1 && R.push(O), O = []) : O.push([v(M[C]), $(x)]);
+    k.forEach((x, z) => {
+      x === null ? (O.length > 1 && R.push(O), O = []) : O.push([v(M[z]), $(x)]);
     }), O.length > 1 && R.push(O);
-    const F = os(r.map((x) => x.db)), _e = Math.max(...F), dt = Math.ceil(_e / 6) * 6, Me = dt - ie, Ae = (x) => p + (dt - Math.max(Me, Math.min(dt, x))) / ie * m, Rt = F.map((x, C) => [v(M[C]), Ae(x)]), Se = `${_t(Rt)}L${v(M[M.length - 1]).toFixed(1)},${(p + m).toFixed(1)}L${v(M[0]).toFixed(1)},${(p + m).toFixed(1)}Z`, Ee = Array.from({ length: Math.floor(a / (a > 3 ? 1 : 0.5)) + 1 }, (x, C) => C * (a > 3 ? 1 : 0.5)).filter((x) => v(x) < t - h - 18), it = n.width && n.width >= W ? n.width : 0, ke = [y, y / 2, 0, -y / 2, -y], j = this.playhead;
+    const F = os(r.map((x) => x.db)), _e = Math.max(...F), dt = Math.ceil(_e / 6) * 6, Me = dt - ie, Ae = (x) => p + (dt - Math.max(Me, Math.min(dt, x))) / ie * m, Rt = F.map((x, z) => [v(M[z]), Ae(x)]), Se = `${_t(Rt)}L${v(M[M.length - 1]).toFixed(1)},${(p + m).toFixed(1)}L${v(M[0]).toFixed(1)},${(p + m).toFixed(1)}Z`, Ee = Array.from({ length: Math.floor(a / (a > 3 ? 1 : 0.5)) + 1 }, (x, z) => z * (a > 3 ? 1 : 0.5)).filter((x) => v(x) < t - h - 18), it = n.width && n.width >= W ? n.width : 0, ke = [y, y / 2, 0, -y / 2, -y], K = this.playhead;
     return _`<svg class="chart ${A ? "ink" : "live"}" width=${t} height=${i} viewBox="0 0 ${t} ${i}" role="img" aria-label=${e.pitch}>
       <defs>
         <linearGradient id="zone" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1=${$(y)} y2=${$(-y)}>
-          ${Array.from({ length: 25 }, (x, C) => {
-      const Te = y - 2 * y * C / 24;
-      return z`<stop offset=${C / 24} style="stop-color: hsl(${wt(Te)} 70% var(--m-hue-l, 42%))" />`;
+          ${Array.from({ length: 25 }, (x, z) => {
+      const Te = y - 2 * y * z / 24;
+      return C`<stop offset=${z / 24} style="stop-color: hsl(${wt(Te)} 70% var(--m-hue-l, 42%))" />`;
     })}
         </linearGradient>
       </defs>
       <text class="axis-name" x=${l} y=${c - 1}>${e.pitch}</text>
       ${ke.map(
-      (x) => z`<line class=${x === 0 ? "zero" : "grid"} x1=${l} x2=${t - h} y1=${$(x)} y2=${$(x)} />
+      (x) => C`<line class=${x === 0 ? "zero" : "grid"} x1=${l} x2=${t - h} y1=${$(x)} y2=${$(x)} />
           <text class="tick" x=${l - 6} y=${$(x) + 4} text-anchor="end">${x > 0 ? "+" : x < 0 ? "−" : ""}${Math.abs(x)}</text>`
     )}
-      ${it && A ? z`<rect class="swing" x=${l} width=${t - l - h} y=${$(n.mean + it / 2)} height=${Math.max(1, $(n.mean - it / 2) - $(n.mean + it / 2))} />` : w}
-      ${R.map((x) => z`<path class="trace" d=${_t(x)} />`)}
-      ${s.live ? w : z`<line class="mean" x1=${l} x2=${t - h} y1=${$(n.mean)} y2=${$(n.mean)} />`}
+      ${it && A ? C`<rect class="swing" x=${l} width=${t - l - h} y=${$(n.mean + it / 2)} height=${Math.max(1, $(n.mean - it / 2) - $(n.mean + it / 2))} />` : w}
+      ${R.map((x) => C`<path class="trace" d=${_t(x)} />`)}
+      ${s.live ? w : C`<line class="mean" x1=${l} x2=${t - h} y1=${$(n.mean)} y2=${$(n.mean)} />`}
       <text class="axis-name" x=${l} y=${p - 6}>${e.level}</text>
       <line class="grid" x1=${l} x2=${t - h} y1=${p + m} y2=${p + m} />
       <path class="level-area" d=${Se} />
       <path class="level" d=${_t(Rt)} />
-      ${Ee.map((x) => z`<text class="tick" x=${v(x)} y=${i - 5} text-anchor="middle">${Ts(x)}</text>`)}
+      ${Ee.map((x) => C`<text class="tick" x=${v(x)} y=${i - 5} text-anchor="middle">${Ts(x)}</text>`)}
       <text class="tick unit" x=${t - h} y=${i - 5} text-anchor="end">${e.seconds}</text>
-      ${j !== void 0 && j >= 0 && j <= o ? z`<line class="playhead" x1=${v(j)} x2=${v(j)} y1=${c} y2=${p + m} />` : w}
+      ${K !== void 0 && K >= 0 && K <= o ? C`<line class="playhead" x1=${v(K)} x2=${v(K)} y1=${c} y2=${p + m} />` : w}
     </svg>`;
   }
   /** The listening key, the input (its level under the gain) and the reverb on playbacks */
@@ -2073,7 +2093,7 @@ S.styles = He`
       box-shadow: var(--m-key-shadow, none);
       cursor: pointer;
     }
-    .round:hover {
+    .round:hover:where(:not(:disabled)) {
       background: var(--m-bg);
     }
     .round svg {
@@ -2096,7 +2116,7 @@ S.styles = He`
       background: var(--m-accent);
       border-color: var(--m-accent);
     }
-    .close:hover {
+    .close:hover:where(:not(:disabled)) {
       background: var(--m-accent-hover, var(--m-accent));
     }
     button:focus-visible,
@@ -2345,7 +2365,7 @@ S.styles = He`
       border-radius: var(--m-radius, 10px);
       cursor: pointer;
     }
-    .listen:hover {
+    .listen:hover:where(:not(:disabled)) {
       background: var(--m-bg);
     }
     .listen.on {
